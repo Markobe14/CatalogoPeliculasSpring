@@ -7,14 +7,14 @@ import java.util.List;
 
 public interface IPeliculaServicio {
 
-    public List<Pelicula> listarPeliculas();
+    public void listarPeliculas();
 
-    public Pelicula buscarPeliculaPorProveedor(Proveedor proveedor);
+    public void buscarPeliculaPorProveedor(Pelicula pelicula);
 
     public void guardarPelicula(Pelicula pelicula);
 
     //public void modificarPelicula(Pelicula pelicula);
 
-    public void eliminarPelicula(Pelicula pelicula);
+    public void eliminarPelicula(int peliculaId);
 
 }

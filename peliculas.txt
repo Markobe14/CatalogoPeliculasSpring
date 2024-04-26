@@ -1,0 +1,3 @@
+1,spyderman,Marco Aguirre,02:45,Comedia,2024,Sony,Japon
+2,batman,Marco Aguirre,02:45,Terror,2024,Marvel,USA
+4,peliculaaaaa,corona,02:45,suspenso,2024,Disney,USA

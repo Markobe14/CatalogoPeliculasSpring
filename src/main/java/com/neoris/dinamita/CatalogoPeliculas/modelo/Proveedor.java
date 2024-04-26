@@ -8,11 +8,17 @@ import lombok.ToString;
 @Data //Genera los métodos Getters y Setters
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 public class Proveedor {
 
-    private String id;
+    //private String id;
     private String nombre;
     private String pais;
 
+
+    @Override
+    public String toString() {
+        return nombre  +
+                "," + pais ;
+    }
 }

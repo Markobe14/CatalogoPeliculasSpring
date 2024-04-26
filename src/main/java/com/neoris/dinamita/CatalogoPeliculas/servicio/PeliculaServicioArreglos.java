@@ -15,24 +15,22 @@ public class PeliculaServicioArreglos implements IPeliculaServicio{
     }
 
     @Override
-    public List<Pelicula> listarPeliculas() {
+    public void listarPeliculas() {
         System.out.println("Lista peliculas");
 
         for(Pelicula pelicula: misPeliculas){
             System.out.println(pelicula);
         }
-        return List.of();
     }
 
     @Override
-    public Pelicula buscarPeliculaPorProveedor(Proveedor proveedor) {
+    public void buscarPeliculaPorProveedor(Pelicula pelicula) {
 
-        for(Pelicula pelicula: misPeliculas){
-            if(pelicula.getProveedor().equals(proveedor)){
-                System.out.println(pelicula.getTitulo() + " " + pelicula.getGenero() + " " + pelicula.getProveedor());
+        for(Pelicula miPelicula: misPeliculas){
+            if(miPelicula.getProveedor().equals(pelicula.getProveedor().getNombre())){
+                System.out.println(miPelicula.getId() + miPelicula.getTitulo() + " " + miPelicula.getGenero() + " " + miPelicula.getProveedor());
             }
         }
-        return null;
     }
 
     @Override
@@ -42,8 +40,8 @@ public class PeliculaServicioArreglos implements IPeliculaServicio{
     }
 
     @Override
-    public void eliminarPelicula(Pelicula pelicula) {
-        misPeliculas.remove(pelicula);
-        System.out.println("Se elimino la pelicula: " + pelicula);
+    public void eliminarPelicula(int peliculaId) {
+        misPeliculas.remove(peliculaId);
+        System.out.println("Se elimino la pelicula: " + peliculaId);
     }
 }

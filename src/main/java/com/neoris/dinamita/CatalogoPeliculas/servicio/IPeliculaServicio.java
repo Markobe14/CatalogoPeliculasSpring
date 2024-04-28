@@ -9,7 +9,7 @@ public interface IPeliculaServicio {
 
     public void listarPeliculas();
 
-    public void buscarPeliculaPorProveedor(Pelicula pelicula);
+    public void buscarPeliculaPorProveedor(String proveedor);
 
     public void guardarPelicula(Pelicula pelicula);
 

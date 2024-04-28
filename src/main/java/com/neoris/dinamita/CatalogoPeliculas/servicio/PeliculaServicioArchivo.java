@@ -61,14 +61,15 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
 
 
     @Override
-    public void buscarPeliculaPorProveedor(Pelicula pelicula) {
+    public void buscarPeliculaPorProveedor(String proveedor) {
         File archivo = new File(NOMBRE_ARCHIVO);
         try {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String lineaTexto = entrada.readLine();
             int indice = 1;
             boolean encontrada = false;
-            String peliculaProveedor = pelicula.getProveedor().getNombre();
+            String peliculaProveedor = proveedor;
+
             while (lineaTexto != null) {
                 // Dividir la línea en partes usando un delimitador apropiado, como ","
                 String[] partes = lineaTexto.split(","); // suponiendo que el formato es nombrePelicula,proveedor

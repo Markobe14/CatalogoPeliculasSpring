@@ -44,15 +44,25 @@ public class CatalogoPeliculasApplication {
 		pelicula4.setLanzamiento(2024);
 		pelicula4.setProveedor(new Proveedor("Disney","USA"));
 
+		Pelicula pelicula5 = new Pelicula();
+		pelicula5.setTitulo("Avengers");
+		pelicula5.setDirector("corona");
+		pelicula5.setDuracion("02:45");
+		pelicula5.setGenero("accion");
+		pelicula5.setLanzamiento(2024);
+		pelicula5.setProveedor(new Proveedor("Marvel","USA"));
+
 		//System.out.println(pelicula2);
 		PeliculaServicioArchivo archivo = new PeliculaServicioArchivo();
 		//archivo.guardarPelicula(pelicula1);
 		//archivo.guardarPelicula(pelicula2);
 		//archivo.guardarPelicula(pelicula3);
 		//archivo.guardarPelicula(pelicula4);
-		//archivo.buscarPeliculaPorProveedor(pelicula3);
+		//archivo.guardarPelicula(pelicula5);
+		archivo.buscarPeliculaPorProveedor("Marvel");
+		//archivo.eliminarPelicula(4);
 		//archivo.listarPeliculas();
-		archivo.eliminarPelicula(3);
+
 	}
 
 }

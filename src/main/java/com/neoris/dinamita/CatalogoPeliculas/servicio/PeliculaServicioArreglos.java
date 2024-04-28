@@ -24,10 +24,10 @@ public class PeliculaServicioArreglos implements IPeliculaServicio{
     }
 
     @Override
-    public void buscarPeliculaPorProveedor(Pelicula pelicula) {
+    public void buscarPeliculaPorProveedor(String proveedor) {
 
         for(Pelicula miPelicula: misPeliculas){
-            if(miPelicula.getProveedor().equals(pelicula.getProveedor().getNombre())){
+            if(miPelicula.getProveedor().equals(proveedor)){
                 System.out.println(miPelicula.getId() + miPelicula.getTitulo() + " " + miPelicula.getGenero() + " " + miPelicula.getProveedor());
             }
         }

@@ -23,25 +23,24 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
         }
     }
 
-
     @Override
     public void listarPeliculas() {
         File archivo = new File(NOMBRE_ARCHIVO);
         try {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String lineaTexto = entrada.readLine();
-            int indice = 1;
+            int indice = 0;
             boolean encontrada = false;
             while (lineaTexto != null) {
                 // Dividir la línea en partes usando un delimitador apropiado, como ","
                 String[] partes = lineaTexto.split(","); // suponiendo que el formato es nombrePelicula,proveedor
                 // Verificar si el proveedor coincide
                     // Si el proveedor coincide, puedes hacer algo con la película, como imprimir su nombre
-                    System.out.println("Película encontrada: ID:" + partes[0].trim() + ", Titulo: "
-                            + partes[1].trim()+ ", Director: " + partes[2].trim()
-                            + ", Duracion: " + partes[3].trim() + ", Genero: " + partes[4].trim()
-                            + ", Lanzamiento: " + partes[5].trim() + ", Proveedor:" + partes[6].trim()
-                            + ", Origen: " + partes[7].trim()); // partes[0] es el nombre de la película
+                System.out.println("Película encontrada: ID:" + partes[0].trim() + ", Titulo: "
+                        + partes[1].trim()+ ", Director: " + partes[2].trim()
+                        + ", Duracion: " + partes[3].trim() + ", Genero: " + partes[4].trim()
+                        + ", Lanzamiento: " + partes[5].trim() + ", Proveedor:" + partes[6].trim()
+                        + ", Origen: " + partes[7].trim()); // partes[0] es el nombre de la película
 
                 lineaTexto = entrada.readLine(); // leer la siguiente línea
                 indice++;
@@ -50,6 +49,7 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
             if (!encontrada) {
                 System.out.println("No se encontraron películas");
             }
+            System.out.println("Se encontraron " + indice + " peliculas!");
             entrada.close(); // Cerrar el BufferedReader cuando hayas terminado
         } catch (FileNotFoundException e) {
             throw new RuntimeException("Archivo no encontrado: " + NOMBRE_ARCHIVO, e);
@@ -66,7 +66,6 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
         try {
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String lineaTexto = entrada.readLine();
-            int indice = 1;
             boolean encontrada = false;
             String peliculaProveedor = proveedor;
 
@@ -76,11 +75,12 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
                 // Verificar si el proveedor coincide
                 if (partes.length >= 2 && partes[6].trim().equals(peliculaProveedor)) {
                     // Si el proveedor coincide, puedes hacer algo con la película, como imprimir su nombre
-                    System.out.println("Película encontrada: ID:" + partes[0].trim() + " Titulo: " + partes[1].trim()+ " Proveedor:" + partes[6].trim()); // partes[0] es el nombre de la película
+                    System.out.println("Película encontrada: ID:" + partes[0].trim() + ", "
+                            + " Titulo: " + partes[1].trim()
+                            + ", " + " Proveedor:" + partes[6].trim()); // partes[0] es el nombre de la película
                     encontrada = true;
                 }
                 lineaTexto = entrada.readLine(); // leer la siguiente línea
-                indice++;
             }
             if (!encontrada) {
                 System.out.println("No se encontraron películas del proveedor: " + peliculaProveedor);
@@ -114,7 +114,7 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
     }
 
     @Override
-    public void eliminarPelicula(int peliculaId) {
+    public void eliminarPelicula(String peliculaId) {
         File archivoEntrada = new File(NOMBRE_ARCHIVO);
         File archivoTemp = new File("temp.txt"); // Archivo temporal para escribir las líneas no eliminadas
         boolean peliculaEncontrada = false; // Variable para indicar si se encontró la película
@@ -126,10 +126,9 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
             while ((linea = br.readLine()) != null) {
                 // Dividir la línea en partes usando un delimitador apropiado, como ","
                 String[] partes = linea.split(","); // suponiendo que el formato es idPelicula,nombrePelicula,proveedor
-                // Obtener el ID de la película de la primera parte y convertirlo a entero
-                int id = Integer.parseInt(partes[0].trim());
+                String id = partes[0].trim();
                 // Verificar si el ID coincide con el de la película que queremos eliminar
-                if (id == peliculaId) {
+                if (id.equals(peliculaId)) {
                     // Si coincide, marcar la película como encontrada y continuar con la siguiente línea
                     peliculaEncontrada = true;
                     continue;

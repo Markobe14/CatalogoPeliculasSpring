@@ -1,3 +1,0 @@
-2,batman,Marco Aguirre,02:45,Terror,2024,Marvel,USA
-5,Avengers,corona,02:45,accion,2024,Marvel,USA
-2,2,3,4,2,2,1,

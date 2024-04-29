@@ -70,8 +70,7 @@ public class Menu {
             case 4 -> {
                 System.out.println("--------Eliminar Pelicula---------");
                 System.out.print("Ingresa el id de la Pelicula a eliminar: ");
-                int idPelicula = entrada.nextInt();
-                entrada.nextLine();
+                String idPelicula = entrada.nextLine();
 
                 peliculaServicio.eliminarPelicula(idPelicula); //Eliminar pelicua por Id
             }

@@ -2,6 +2,7 @@ package com.neoris.dinamita.CatalogoPeliculas.modelo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import java.util.UUID;
 import lombok.ToString;
 
 @Data //Genera los métodos Getters y Setters
@@ -9,9 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 //@ToString
 public class Pelicula {
-
-    private int id;
-    private static int ultimoId;
+    private String id;
     private String titulo;
     private String director;
     private String duracion;
@@ -21,7 +20,7 @@ public class Pelicula {
     private Proveedor proveedor;
 
     public Pelicula() {
-        this.id = ++ultimoId;
+        this.id = UUID.randomUUID().toString().replaceAll("-", "");
     }
 
     public Pelicula(String titulo) {

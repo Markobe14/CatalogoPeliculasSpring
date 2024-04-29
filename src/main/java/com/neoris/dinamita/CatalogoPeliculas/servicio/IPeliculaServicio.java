@@ -15,6 +15,6 @@ public interface IPeliculaServicio {
 
     //public void modificarPelicula(Pelicula pelicula);
 
-    public void eliminarPelicula(int peliculaId);
+    public void eliminarPelicula(String peliculaId);
 
 }

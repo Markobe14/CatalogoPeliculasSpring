@@ -40,7 +40,7 @@ public class PeliculaServicioArreglos implements IPeliculaServicio{
     }
 
     @Override
-    public void eliminarPelicula(int peliculaId) {
+    public void eliminarPelicula(String peliculaId) {
         misPeliculas.remove(peliculaId);
         System.out.println("Se elimino la pelicula: " + peliculaId);
     }

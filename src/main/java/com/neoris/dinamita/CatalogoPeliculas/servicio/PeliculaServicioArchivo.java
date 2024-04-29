@@ -106,7 +106,7 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
             salida.println(pelicula);
             //3. Cerramos el archivo
             salida.close();
-            System.out.println("Se agrego al archivo: " + pelicula);
+            System.out.println("Pelicula agregada correctamente: " + pelicula);
 
         } catch (Exception e) {
             System.out.println("Ocurrio un error al agregar pelicula: " + e.getMessage());

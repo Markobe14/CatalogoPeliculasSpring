@@ -1,3 +1,2 @@
 d158d1be-accc-487d-a677-ee47dc71e967,peli,nose,12:45,oja,2345,Marvel,Mexico
 161f0f51-fd41-446d-aa96-139a68bf1051,batman,batman,10:20,Accion,2034,Universal,USA
-83b3ae70-42ed-4800-b3a7-a457782d7496,super man,batman,45:78,Accion,1023,DC,USA

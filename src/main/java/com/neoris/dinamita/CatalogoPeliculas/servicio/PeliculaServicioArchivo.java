@@ -34,13 +34,12 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
             while (lineaTexto != null) {
                 // Dividir la línea en partes usando un delimitador apropiado, como ","
                 String[] partes = lineaTexto.split(","); // suponiendo que el formato es nombrePelicula,proveedor
-                // Verificar si el proveedor coincide
-                    // Si el proveedor coincide, puedes hacer algo con la película, como imprimir su nombre
+
                 System.out.println("Película encontrada: ID:" + partes[0].trim() + ", Titulo: "
                         + partes[1].trim()+ ", Director: " + partes[2].trim()
                         + ", Duracion: " + partes[3].trim() + ", Genero: " + partes[4].trim()
                         + ", Lanzamiento: " + partes[5].trim() + ", Proveedor:" + partes[6].trim()
-                        + ", Origen: " + partes[7].trim()); // partes[0] es el nombre de la película
+                        + ", Origen: " + partes[7].trim());
 
                 lineaTexto = entrada.readLine(); // leer la siguiente línea
                 indice++;
@@ -67,6 +66,7 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
             BufferedReader entrada = new BufferedReader(new FileReader(archivo));
             String lineaTexto = entrada.readLine();
             boolean encontrada = false;
+            int indice = 0;
             String peliculaProveedor = proveedor;
 
             while (lineaTexto != null) {
@@ -77,14 +77,16 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
                     // Si el proveedor coincide, puedes hacer algo con la película, como imprimir su nombre
                     System.out.println("Película encontrada: ID:" + partes[0].trim() + ", "
                             + " Titulo: " + partes[1].trim()
-                            + ", " + " Proveedor:" + partes[6].trim()); // partes[0] es el nombre de la película
+                            + ", " + " Proveedor:" + partes[6].trim());
                     encontrada = true;
+                    indice++;
                 }
                 lineaTexto = entrada.readLine(); // leer la siguiente línea
             }
             if (!encontrada) {
                 System.out.println("No se encontraron películas del proveedor: " + peliculaProveedor);
             }
+            System.out.println("Se encontraron " + indice + " peliculas!");
             entrada.close(); // Cerrar el BufferedReader cuando hayas terminado
         } catch (FileNotFoundException e) {
             throw new RuntimeException("Archivo no encontrado: " + NOMBRE_ARCHIVO, e);
@@ -133,7 +135,7 @@ public class PeliculaServicioArchivo implements IPeliculaServicio{
                     peliculaEncontrada = true;
                     continue;
                 }
-                // Si no coincide, escribir la línea en el archivo temporal
+                // Si no coincide, escribe la línea en el archivo temporal
                 bw.write(linea);
                 bw.newLine();
             }
